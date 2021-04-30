@@ -1,0 +1,95 @@
+body{
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Pangolin', cursive;
+    padding: 12px 20px;
+    color: rgb(235, 247, 192);
+    background-image: url("old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall.jpg")
+}
+
+h1{
+    font-size: 30px;
+}
+
+#time{
+    padding: 7px;
+    font-size: 25px;
+}
+
+.time-btn{
+    padding: 10px;
+}
+
+#input{
+    font-size: medium;
+    color: rgba(255, 240, 245, 0.199);
+    width: 12%;
+    padding: 4px;
+    margin: 3px 0;
+    background: none;
+    border: none;
+    border-bottom: 2px dashed rgb(253, 244, 225);
+}
+
+
+#input-btn{
+    margin-left: 7px;
+}
+
+.paragraf{
+    font-size: 20px;
+    font-weight: 700px;
+}
+
+
+* {
+    box-sizing: border-box;
+  }
+
+h2{
+    padding: 20px;
+    border-bottom: double;
+    font-size: 25px;
+}
+
+.box{
+    float: left;
+    /* background-color: rgba(255, 240, 245, 0.075); */
+    width: 32.5%;
+    padding: 8px;
+    margin: 5px;
+    height: 100%;
+    box-shadow: lavenderblush;
+}
+
+.list{
+    padding: 11px;
+}
+
+.list:hover{
+    background-color: rgba(255, 240, 245, 0.075);
+}
+
+.btn {
+    text-align: right;
+    padding: 4px;
+}
+
+.btn-a{
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.123);
+    border: none;
+    color: blanchedalmond;
+}
+
+
+
+#btn-close{
+    align-items: right;
+    color: rgb(207, 27, 14);
+}
+
+.btn-a:hover{
+    background-color: rgba(255, 240, 245, 0.178);
+
+}
