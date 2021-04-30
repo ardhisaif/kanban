@@ -1,1 +1,51 @@
-Hello World
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="kanban.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Kaushan+Script&family=Pangolin&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div style="text-align:center;">
+            <h1>
+                Kanban Board
+            </h1>
+            <input id="input" placeholder="type here..." type="text" ><button onclick="input()" id="input-btn" type="submit"><img src="add.png" alt="coba" width="9px"></button>
+
+        </div>
+        <div class="box">
+            <h2 style="text-align:center;">
+                todo
+            </h2>
+            <div class="list"  id="todo">
+                <div class="list">
+                    <p class="paragraf">membaca</p>
+                    <div class="btn">
+                        <button class="btn-a" id="btn-close"><img src="close.png" alt="btn close" width="20px"></button>
+                        <button class="btn-a" id="btn-edit"><img src="edit.png" alt="" width="20px"></button>
+                        <button class="btn-a" id="btn-move"><img src="pngwing.com.png" alt="" width="20px" height="20px"></button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="box">
+            <h2 style="text-align:center;">
+                doing
+            </h2>
+            <div class="list"  id="doing">
+                
+            </div>
+        </div>
+        <div class="box">
+            <h2 style="text-align:center;">
+                done
+            </h2>
+            <div class="list"  id="done">
+                
+            </div>
+        </div>
+        <button id="reset-btn" type="reset" onclick="reset()" >clear all</button>
+        <script src="kanban.js"></script>
+    </body>
+</html>
