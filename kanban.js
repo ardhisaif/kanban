@@ -155,6 +155,7 @@ function tick() {
     }else{
         displayJam = jam
     }
+    console.log(data);
     document.getElementById("time").innerHTML = `${displayJam}:${displayMinute}:${displayDetik}`;
 }
 
@@ -199,7 +200,7 @@ function render(){
         let timeBtn = document.createElement("div")
 
         paragraf.classList.add("paragraf")
-        card.classList.add("list")
+        card.classList.add("listBox")
         btn.classList.add("btn")
         close.classList.add("btn-a")
         close.classList.add("close")
