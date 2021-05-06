@@ -1,23 +1,28 @@
 let data = [
     {
         todo: "sarapan",
-        box: "todo"
+        box: "todo",
+        stopwatch: "00:00:00"
     },
     {
         todo: "berenang",
-        box: "todo"
+        box: "todo",
+        stopwatch: "00:00:00"
     },
     {
         todo: "mandi",
-        box: "todo"
+        box: "todo",
+        stopwatch: "00:00:00"
     },
     {
         todo: "belajar",
-        box: "todo"
+        box: "todo",
+        stopwatch: "00:00:00"
     },
     {
         todo: "olahraga",
-        box: "doing"
+        box: "doing",
+        stopwatch: "00:00:00"
     }
 ]
 
@@ -53,6 +58,10 @@ function handleClick(click){
             let editkata = prompt("silahkan edit", "type here...")
             data[item.parentElement.id].todo = editkata
         }else if (item.parentElement.classList[1] === "move") {
+            detik = 0
+            menit = 0
+            jam = 0
+            start()
             data[item.parentElement.id].box = "doing"
         }
     }else if (todoElement === "doing") {
@@ -63,10 +72,17 @@ function handleClick(click){
             data[item.parentElement.id].todo = editkata
         }else if (item.parentElement.classList[1] === "move") {
             data[item.parentElement.id].box = "done"
+            data[item.parentElement.id].stopwatch = document.getElementById("time").innerHTML
+            stop()
         }else if (item.parentElement.classList[1] === "back") {
             data[item.parentElement.id].box = "todo"
         }
 
+        
+    }else if (todoElement === "done") {
+        if (item.parentElement.classList[1] === "check") {
+            data.splice(item.parentElement.id, 1)
+        }
     }
     console.log(item.parentElement.id);
     if(item.parentElement.id === "startTimer"){
@@ -80,11 +96,6 @@ function handleClick(click){
     render()
 }
 
-function reset(){
-    document.getElementById("reset-btn").innerHTML = "halooo"
-}
-
-
 let detik = 0;
 let minute = 0;
 let jam = 0;
@@ -94,6 +105,31 @@ let displayMinute = 0
 let displayJam = 0
 
 let timerID = -1;
+
+if(detik === 60){
+    detik = 0
+    minute ++
+    if (minute === 60) {
+        minute = 0
+        jam ++
+    }
+}
+if (detik < 10) {
+    displayDetik = "0" + detik
+}else{
+    displayDetik = detik
+}
+if (minute < 10) {
+    displayMinute = "0" + minute
+}else{
+    displayMinute = minute
+}
+if (jam < 10) {
+    displayJam = "0" + jam
+}else{
+    displayJam = jam
+}
+
 function tick() {
     detik++
     if(detik === 60){
@@ -172,6 +208,7 @@ function render(){
         move.classList.add("btn-a")
         move.classList.add("move")
         check.classList.add("btn-a")
+        check.classList.add("check")
         back.classList.add("btn-a")
         back.classList.add("back")
         play.classList.add("btn-a")
@@ -180,6 +217,7 @@ function render(){
         timeBtn.classList.add("time-btn")
 
         paragraf.id = i
+        card.id = i
         close.id = i
         edit.id = i
         move.id = i
@@ -189,6 +227,7 @@ function render(){
         play.id = "startTimer"
         pause.id = "stopTimer"
         reset.id = "resetTimer"
+        timeBtn.id = i
 
         paragraf.innerHTML = data[i].todo
         close.innerHTML = '<img src="close.png" width="20px"/>'
@@ -196,11 +235,10 @@ function render(){
         move.innerHTML = '<img src="pngwing.com.png" width="20px" height="20px"/>'
         check.innerHTML = '<img src="done.png" width="20px"/>'
         back.innerHTML = '<img src="back.png" width="20px" height="20px"/>'
-        time.innerHTML = "00:00:00"
+        time.innerHTML = `${displayJam}:${displayMinute}:${displayDetik}`
         play.innerHTML = '<img src="play.png" width="25px" />'
         pause.innerHTML = '<img src="pause.png" width="25px" />'
         reset.innerHTML = '<img src="reset.png" width="25px" />'
-    
 
         card.appendChild(paragraf)
         if (data[i].box !== "done") {
@@ -222,6 +260,15 @@ function render(){
         card.appendChild(btn)
         
         console.log(card);
+
+        if (card.id % 3 === 0) {
+            card.style.backgroundColor = "#eb4d4b"
+        }else if(card.id % 2 === 0){
+            card.style.backgroundColor = "#f0932b"
+        }else{
+            card.style.backgroundColor = "#f9ca24"
+        }
+        
         if(data[i].box === "todo"){
             document.getElementById("todo").appendChild(card)
         }else if(data[i].box === "doing"){

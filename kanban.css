@@ -1,19 +1,25 @@
 body{
+    font-size: x-large;
     font-family: 'Indie Flower', cursive;
     font-family: 'Kaushan Script', cursive;
     font-family: 'Pangolin', cursive;
     padding: 12px 20px;
-    color: rgb(235, 247, 192);
-    background-image: url("old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall.jpg")
+    color: rgb(45, 46, 41);
+    background-color: #f1f2f6;
+    align-content: center;
+}
+
+img{
+    filter: invert(100%);
 }
 
 h1{
-    font-size: 30px;
+    font-size: 6vw;
 }
 
 #time{
     padding: 7px;
-    font-size: 25px;
+    font-size: 2vw;
 }
 
 .time-btn{
@@ -22,18 +28,28 @@ h1{
 
 #input{
     font-size: medium;
-    color: rgba(255, 240, 245, 0.199);
+    color: rgb(39, 34, 34);
     width: 12%;
     padding: 4px;
     margin: 3px 0;
     background: none;
     border: none;
-    border-bottom: 2px dashed rgb(253, 244, 225);
+    border-bottom: 2px dashed rgb(34, 33, 30);
+}
+
+#input:hover{
+    background-color: rgb(255, 255, 138);
 }
 
 
 #input-btn{
     margin-left: 7px;
+    border: none;
+    background-color: #ffa502;
+}
+
+#input-btn:hover{
+    background-color: #ffbb00ad;
 }
 
 .paragraf{
@@ -41,45 +57,51 @@ h1{
     font-weight: 700px;
 }
 
+.content{
+    display: flex;
+    padding: 10px;
+    margin: 20px;
+}
 
 * {
     box-sizing: border-box;
   }
 
 h2{
-    padding: 20px;
+    padding: 10px;
     border-bottom: double;
-    font-size: 25px;
+    font-size: 35px;
+    background-color: #d2dae2;
 }
 
 .box{
-    float: left;
     /* background-color: rgba(255, 240, 245, 0.075); */
-    width: 32.5%;
+    min-width: 300px;
+    width: 500px;
     padding: 8px;
     margin: 5px;
     height: 100%;
     box-shadow: lavenderblush;
 }
 
-.list{
-    padding: 11px;
-}
 
-.list:hover{
-    background-color: rgba(255, 240, 245, 0.075);
+.list{
+    padding: 11px;    
+    margin: 11px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 5px;
 }
 
 .btn {
     text-align: right;
     padding: 4px;
+    padding: 2px;
 }
 
 .btn-a{
     font-weight: 700;
-    background-color: rgba(0, 0, 0, 0.123);
     border: none;
-    color: blanchedalmond;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 
