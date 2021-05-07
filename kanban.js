@@ -55,14 +55,30 @@ function handleClick(click){
         if(item.parentElement.classList[1] === "close"){
             data.splice(item.parentElement.id, 1)
         }else if (item.parentElement.classList[1] === "edit") {
-            let editkata = prompt("silahkan edit", "type here...")
+            let editkata = prompt("silahkan edit", `${data[item.parentElement.id].todo}`)
             data[item.parentElement.id].todo = editkata
         }else if (item.parentElement.classList[1] === "move") {
             detik = 0
             menit = 0
             jam = 0
-            start()
-            data[item.parentElement.id].box = "doing"
+            
+            let flag = true
+
+            for (let i = 0; i < data.length; i++) {
+                const doing = data[i].box
+                if (doing === "doing") {
+                    flag = false
+                }
+            }
+
+            if (flag) {
+                data[item.parentElement.id].box = "doing"
+                start()
+            }else{
+                alert("anda hanya bisa mengerjakan satu pekerjaan dalam satu waktu")
+            }
+
+
         }
     }else if (todoElement === "doing") {
         if(item.parentElement.classList[1] === "close"){
@@ -155,8 +171,9 @@ function tick() {
     }else{
         displayJam = jam
     }
-    console.log(data);
-    document.getElementById("time").innerHTML = `${displayJam}:${displayMinute}:${displayDetik}`;
+
+    data[document.getElementById("time").parentElement.id].stopwatch = `${displayJam}:${displayMinute}:${displayDetik}`
+    document.getElementById("time").innerHTML = data[document.getElementById("time").parentElement.id].stopwatch
 }
 
 function start() {
@@ -236,7 +253,7 @@ function render(){
         move.innerHTML = '<img src="pngwing.com.png" width="20px" height="20px"/>'
         check.innerHTML = '<img src="done.png" width="20px"/>'
         back.innerHTML = '<img src="back.png" width="20px" height="20px"/>'
-        time.innerHTML = `${displayJam}:${displayMinute}:${displayDetik}`
+        time.innerHTML = `${data[i].stopwatch}`
         play.innerHTML = '<img src="play.png" width="25px" />'
         pause.innerHTML = '<img src="pause.png" width="25px" />'
         reset.innerHTML = '<img src="reset.png" width="25px" />'
@@ -270,6 +287,7 @@ function render(){
             card.style.backgroundColor = "#f9ca24"
         }
         
+
         if(data[i].box === "todo"){
             document.getElementById("todo").appendChild(card)
         }else if(data[i].box === "doing"){
