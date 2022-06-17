@@ -1,4 +1,7 @@
 # kanban
+
+Kanban Board Web is my first personal project after I learned basic javascript programming, OOP, Html, CSS, and Javascript. 
+
 ## versi web
 ![demogif](https://github.com/ardhisaif/kanban/blob/main/Untitled.png)
 
